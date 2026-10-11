@@ -9,7 +9,6 @@ cfm = CoffeeMaker()
 console = Console()
 flav_choice = "-"
 actual_rsrc = men.resources
-profit = 0
 
 
 while True:
@@ -22,7 +21,7 @@ while True:
         print("Turning off machine...")
         break
     if master_choice == "report":
-        mm.report_printer(actual_rsrc, profit)
+        mm.report_printer(actual_rsrc)
         continue
     else:
         flav_choice = master_choice
@@ -35,7 +34,8 @@ while True:
     if not c_flag:
         print("Sorry, not enough money to complete the transaction. Money refunded.")
         continue
-    profit = mm.transactioner(profit, e, flav_choice)
+    mm.transactioner(e, flav_choice) #NOW ITS NOT NECESSARY TO CARRY A PROFIT VARIABLE FOR THE ACCUMULATED PROFIT IT PERSIST WITHIN THE OBJECT CREATED BY THAT CLASS
+    # The logic of the method above also returns a value for that method so if I wanted to put its value at test in a conditional it could be true without assigning it to a var
     actual_rsrc = cfm.coffeemaker(flav_choice)
 
 
