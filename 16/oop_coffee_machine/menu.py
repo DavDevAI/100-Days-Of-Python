@@ -31,10 +31,3 @@ class Menu:
         "coffee": 100,
     }
 
-    DENOMINATIONS = {  # also this ones i want them fixed
-        "quarters": 0.25,
-        "dimes": 0.10,
-        "nickels": 0.05,
-        "pennies": 0.01,
-    }
-
