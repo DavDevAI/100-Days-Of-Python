@@ -1,14 +1,11 @@
-from menu import Menu
 from money_machine import MoneyMachine
 from coffee_maker import CoffeeMaker
 from rich.console import Console
 
 mm = MoneyMachine()
-men = Menu()
 cfm = CoffeeMaker()
 console = Console()
 flav_choice = "-"
-actual_rsrc = men.resources
 
 
 while True:
@@ -21,7 +18,8 @@ while True:
         print("Turning off machine...")
         break
     if master_choice == "report":
-        mm.report_printer(actual_rsrc)
+        cfm.rsc_report()
+        mm.profit_report()
         continue
     else:
         flav_choice = master_choice
@@ -30,7 +28,7 @@ while True:
         # if src_flag == False: means the same only it is cleaner, if its not the src_flag value, then do that that's equal to if src_flag == False
         #--------------------------------------------------------------------------------------------------------------------
         #NOW I AM GOING TO INVERT OR REVERSE THE LOGIC, TO MAKE IT STRAIGHT AND THE ELSE IS CONTINUE
-        cfm.coffeemaker(flav_choice)
+        cfm.brew(flav_choice)
     else:
         continue #NOT SO NECESSARY BECAUSE IF NOT (==FALSE) IT STARTS AGAIN THE LOOP
 
