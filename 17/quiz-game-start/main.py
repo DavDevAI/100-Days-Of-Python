@@ -9,8 +9,8 @@ question_bank = []
 idx = 0
 for question in qd.question_data:
     idx +=1
-    q = Question(qd.question_data[idx-1]["text"], qd.question_data[idx-1]["answer"])
-    question_bank.append(q)
+    q = Question(qd.question_data[idx-1]["question"], qd.question_data[idx-1]["correct_answer"])
+    question_bank.append(q) #now Question Bank would be a list of objects
     #IF I WANTED TO APPEND IT AND SAVE IT AS A STRING AND NOT AN OBJECT
     # question_bank.append(q.text)
 
