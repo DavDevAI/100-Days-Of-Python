@@ -23,18 +23,15 @@ color_pallette = [(199, 175, 117), (125, 36, 24), (187, 158, 51), (170, 104, 56)
 
 def dot_painting(x_dot,y_dot):
     tim.penup()
-    # start = [-225, -225]
-    # tim.goto(start)
-    start_x = 0
-    start_y = 0
+    start = [-225, -225]
+    tim.goto(start)
     for y in range(y_dot):
         for x in range(x_dot):
-            tim.goto(start_x + x*50, start_y + y*50)  # To make it more dynamical it goes accumulating each iteration that's why y define y and x in the for loops
+            tim.goto(start[0] + x*50, start[1] + y*50)  # To make it more dynamical it goes accumulating each iteration that's why y define y and x in the for loops
             tim.dot(20, random.choice(color_pallette))
-
             #tim.forward(50)
         #start[1] += 50
-        tim.goto(start_x, start_y)
+        tim.goto(start[0], start[1])
 
 dot_painting (10, 10)
 
