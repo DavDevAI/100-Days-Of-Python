@@ -31,7 +31,7 @@ def dot_painting(x_dot,y_dot):
             tim.dot(20, random.choice(color_pallette))
             #tim.forward(50)
         #start[1] += 50
-        tim.goto(start[0], start[1])
+        #tim.goto(start[0], start[1])
 
 dot_painting (10, 10)
 
