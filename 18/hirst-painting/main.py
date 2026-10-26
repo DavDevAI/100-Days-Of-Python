@@ -23,6 +23,7 @@ color_pallette = [(199, 175, 117), (125, 36, 24), (187, 158, 51), (170, 104, 56)
 
 def dot_painting(x_dot,y_dot):
     tim.penup()
+    tim.hideturtle()
     start = [-225, -225]
     tim.goto(start)
     for y in range(y_dot):
