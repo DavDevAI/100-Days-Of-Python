@@ -26,8 +26,6 @@ def draw_spirograph(resolution):
     #     tim.circle(100)
     #     tim.left(360/times_to_divide)
 
-
-
 draw_spirograph(10)
 
 
