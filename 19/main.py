@@ -1,0 +1,8 @@
+from turtle import Turtle, Screen
+
+tim = Turtle()
+screen = Screen()
+
+# EVENT LISTENERS, FOR PYTHON AND SPECIFIC FOR THIS LIBRARY AN EVENT LISTENER IS BASICALLY LIKE AN INTERRUPTION EVENT AS OTHER LANGUAGES (C, ASSY)
+
+screen.listen()
