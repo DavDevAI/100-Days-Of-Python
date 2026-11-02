@@ -10,7 +10,7 @@ user_bet = "-"
 # while user_bet != colors[0] and user_bet != colors[1] and user_bet != colors[2] and user_bet != colors[3] and user_bet != colors[4] and user_bet != colors[5]:
 #GREAT LESSON USED I WANTED while user_bet != color in colors: the correct one was:
 while user_bet not in colors:
-    user_bet = screen.textinput("Your Turtle", "Choose the color of your turtle").lower()
+    user_bet = screen.textinput("Your Turtle", "Choose the color of your turtle")
 
 start = [-225, -200] #center position to left
 is_race_on = False
@@ -27,7 +27,7 @@ for turtles in range(len(colors)):
 if user_bet:
     is_race_on = True
 
-while True:
+while is_race_on:
 
     for turtle in turtle_bank:
         if turtle.xcor() > 225:
@@ -42,3 +42,4 @@ while True:
         # tloc[1] = random.randint(0, 10)
         # turtle.forward(tloc[1])
 
+screen.exitonclick()
