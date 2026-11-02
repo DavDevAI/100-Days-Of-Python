@@ -1,18 +1,31 @@
-from turtle import Turtle, Screen
+from turtle import Screen, Turtle
+import random
 
-tim = Turtle()
 screen = Screen()
 
-# EVENT LISTENERS, FOR PYTHON AND SPECIFIC FOR THIS LIBRARY AN EVENT LISTENER IS BASICALLY LIKE AN INTERRUPTION EVENT AS OTHER LANGUAGES (C, ASSY)
+screen.setup(500,400)   #the width and height are NOW in fixed pixels
 
-def move_forward():
-    tim.forward(100)
+user_bet = screen.textinput("Your Turtle", "Choose the color of your turtle")
+colors = ["red", "green", "blue", "yellow", "orange", "purple"]
+start = [-225, -200] #center position to left
+is_race_on = False
+position_bank = []
+turtle_bank = []
+for turtles in range(len(colors)):
+    tim = Turtle(shape = "turtle")
+    tim.penup()
+    tim.color(colors[turtles])
+    start[1] += 50
+    tim.goto(start[0],start[1])
+    turtle_bank.append(tim)
+    position_bank.append(list(tim.position()))
+
+print(position_bank)
+if is_race_on:
+    is_race_on = True
+
+while is_race_on:
+    random.randint(0,10)
 
 
-screen.listen() #recursively listening or actively running a parallel process that listens to an interruption
-#FUNCTIONS AS AN INPUT, USING move_forward() as a paramater for another function
-screen.onkey(key = "space", fun = move_forward) #because is actively listening (like a forever while loop on a microcontroller or a always executing thing on web app or server)
-#if I use a function no-developed by me i use key arguments to mark the position of each parameter and clarify and mark what means for each postion
-#It will walk whenever I press space like a game that is always playing and waiting for our commands
-#or like a robotics arm or project that is always listening and awating and reacting for any given command
 screen.exitonclick()
