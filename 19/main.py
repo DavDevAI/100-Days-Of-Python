@@ -7,7 +7,9 @@ screen.setup(500,400)   #the width and height are NOW in fixed pixels
 
 colors = ["red", "green", "blue", "yellow", "orange", "purple"]
 user_bet = "-"
-while user_bet != colors[0] and user_bet != colors[1] and user_bet != colors[2] and user_bet != colors[3] and user_bet != colors[4] and user_bet != colors[5]:
+# while user_bet != colors[0] and user_bet != colors[1] and user_bet != colors[2] and user_bet != colors[3] and user_bet != colors[4] and user_bet != colors[5]:
+#GREAT LESSON USED I WANTED while user_bet != color in colors: the correct one was:
+while user_bet not in colors:
     user_bet = screen.textinput("Your Turtle", "Choose the color of your turtle").lower()
 
 start = [-225, -200] #center position to left
@@ -21,11 +23,11 @@ for turtles in range(len(colors)):
     new_turtle.goto(start[0],start[1])
     turtle_bank.append(new_turtle)
 
-
+#
 if user_bet:
     is_race_on = True
 
-while is_race_on:
+while True:
 
     for turtle in turtle_bank:
         if turtle.xcor() > 225:
@@ -40,4 +42,3 @@ while is_race_on:
         # tloc[1] = random.randint(0, 10)
         # turtle.forward(tloc[1])
 
-screen.exitonclick()
