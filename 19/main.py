@@ -5,8 +5,11 @@ screen = Screen()
 
 screen.setup(500,400)   #the width and height are NOW in fixed pixels
 
-user_bet = screen.textinput("Your Turtle", "Choose the color of your turtle")
 colors = ["red", "green", "blue", "yellow", "orange", "purple"]
+user_bet = "-"
+while user_bet != colors[0] and user_bet != colors[1] and user_bet != colors[2] and user_bet != colors[3] and user_bet != colors[4] and user_bet != colors[5]:
+    user_bet = screen.textinput("Your Turtle", "Choose the color of your turtle").lower()
+
 start = [-225, -200] #center position to left
 is_race_on = False
 turtle_bank = []
@@ -31,10 +34,10 @@ while is_race_on:
                 print("Your Turtle wins!")
             else:
                 print(f"Your Turtle lost! {turtle.fillcolor()} won")
-
-        tloc = list(turtle.position())
-        tloc[1] = random.randint(0,10)
-        turtle.forward(tloc[1])
-
+        turtle.forward(random.randint(0,10))
+        #This is a simpler way than
+        # tloc = list(turtle.position())
+        # tloc[1] = random.randint(0, 10)
+        # turtle.forward(tloc[1])
 
 screen.exitonclick()
