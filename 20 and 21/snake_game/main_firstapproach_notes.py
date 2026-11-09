@@ -2,7 +2,7 @@ from turtle import Turtle, Screen
 import time
 
 screen = Screen()
-screen.setup(width = 800, height = 600) # WHEN IS A LIBRARY THING AND DOESNT KNOW EXACTLY WHAT MEANS EACH MARAMETERS WE USE THE EXPLICIT PARAMETER like width = 600
+screen.setup(width = 800, height = 600) # WHEN IS A LIBRARY THING AND DOESN'T KNOW EXACTLY WHAT MEANS EACH pARAMETERS WE USE THE EXPLICIT PARAMETER like width = 600
 screen.bgcolor("black") #changing background color and name it as black I want it black
 screen.title("David´s Snake Game")
 screen.tracer(0)
