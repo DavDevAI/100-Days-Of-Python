@@ -9,6 +9,16 @@ class Animal:
 class Fish(Animal):
     def __init__(self): #I code the constructor or initializer
         super().__init__() #I put the super of the father class or greater class using the keyword super and the initializer to mark I am calling the init of the superclass or fatherclass
+        #IN THE CONSTRUCTOR THE CALL TO super() is recommended but not strictly required
+
+        
+
+    #what if I want to inherit a method but adjust it at my own needs
+    def breathe(self):
+        super().breathe() # I call to breathe from the superclass
+        #does the same as the superclass, but also I want to add that the fish does it underwater
+        print("doing this underwater")
+
     def swim(self):
         print("Swim, Swim")
 
