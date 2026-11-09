@@ -12,7 +12,7 @@ def random_color():
     b = random.randint(0, 255)
     return r, g, b
 
-#tim.speed("fastest")
+tim.speed("fastest")
 
 def draw_spirograph(resolution):
     for _ in range(int(360/resolution)):
