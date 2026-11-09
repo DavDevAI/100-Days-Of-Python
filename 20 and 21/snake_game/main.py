@@ -1,4 +1,4 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from snake import Snake
 import time
 
@@ -10,7 +10,15 @@ screen.tracer(0)
 screen.listen()
 
 snake = Snake()
-snake.initialize_snake()
+
+#movements #here I use onkey because if I use onkeypress() and will continue to call the movement and translates on accelerating the snake and
+#for the logics of this games acceleration is not allowed
+
+screen.onkey(key="Up", fun=snake.move_up)
+screen.onkey(key="Down", fun=snake.move_down)
+screen.onkey(key="Left", fun=snake.move_left)
+screen.onkey(key="Right", fun=snake.move_right)
+
 game_is_on = True
 
 while game_is_on:
@@ -18,8 +26,6 @@ while game_is_on:
     time.sleep(0.1)
 
     snake.move()
-
-
 
 
 screen.exitonclick()

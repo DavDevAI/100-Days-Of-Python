@@ -1,37 +1,44 @@
-from turtle import Screen, Turtle
+from turtle import Turtle
 
-screen = Screen()
-screen.listen()
-
-
+MOVE_DISTANCE = 20
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
 
 class Snake:
 
     def __init__(self):
         self.start = [0, 0]
         self.segments = []
+        self.initialize_snake()
+        self.head = self.segments[0]
 
     def initialize_snake (self):
         for _ in range(3):
             new_square = Turtle(shape="square")
             new_square.color("white")
             new_square.penup()
-            new_square.shapesize(2, 2)
             self.start[0] += -20
             new_square.goto(self.start[0], 0)
             self.segments.append(new_square)
 
     def move_up(self):
-        self.segments[0].setheading(90)
+        #CONDITIONAL TO AVOID TURNING BACK ON ITS OWN TAIL
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
 
     def move_down(self):
-        self.segments[0].setheading(270)
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
 
     def move_left(self):
-        self.segments[0].setheading(180)
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
 
     def move_right(self):
-        self.segments[0].setheading(0)
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
 
     #self.initialize_snake()
     def move(self):
@@ -40,10 +47,5 @@ class Snake:
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].goto(new_x, new_y)
 
-        self.segments[0].forward(10)
+        self.head.forward(MOVE_DISTANCE)
 
-        #movements
-        screen.onkeypress(key="Up", fun=self.move_up)
-        screen.onkeypress(key="Down", fun=self.move_down)
-        screen.onkeypress(key="Left", fun=self.move_left)
-        screen.onkeypress(key="Right", fun=self.move_right)
