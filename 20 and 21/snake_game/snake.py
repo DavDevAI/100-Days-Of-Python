@@ -34,7 +34,9 @@ class Snake:
         new_square.goto(position)
         self.segments.append(new_square)
 
-    #def increase_tail(self):
+    def increase_tail(self):
+        #add a segment to the snake
+        self.add_segment(self.segments[-1].position())
 
     def move_up(self):
         #CONDITIONAL TO AVOID TURNING BACK ON ITS OWN TAIL
@@ -53,7 +55,6 @@ class Snake:
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
 
-    #self.initialize_snake()
     def move(self):
         for seg_num in range(len(self.segments) - 1, 0, -1):
             new_x = self.segments[seg_num - 1].xcor()
@@ -61,5 +62,3 @@ class Snake:
             self.segments[seg_num].goto(new_x, new_y)
 
         self.head.forward(MOVE_DISTANCE)
-
-    def increase_tail(self):

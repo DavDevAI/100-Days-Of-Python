@@ -37,12 +37,13 @@ while game_is_on:
         print("eating")
         scoreboard.increase_score()
         food.refresh_food()
+        snake.increase_tail()
 
     #Detect collision with the walls to end the game
     if snake.head.xcor() > 280 or snake.head.ycor() > 280 or snake.head.xcor() < -280 or snake.head.ycor()<-280:
         game_is_on = False
         scoreboard.game_over()
-        print("Game Over")
+
 
 
 
