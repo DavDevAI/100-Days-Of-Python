@@ -5,23 +5,36 @@ UP = 90
 DOWN = 270
 LEFT = 180
 RIGHT = 0
+STARTING_POSITIONS = [(0,0), (0,-20), (0,-40)]
 
 class Snake:
 
     def __init__(self):
-        self.start = [0, 0]
+        #self.start = [0, 0] Not used anymore
         self.segments = []
         self.initialize_snake()
         self.head = self.segments[0]
 
     def initialize_snake (self):
-        for _ in range(3):
-            new_square = Turtle(shape="square")
-            new_square.color("white")
-            new_square.penup()
-            self.start[0] += -20
-            new_square.goto(self.start[0], 0)
-            self.segments.append(new_square)
+        for position in STARTING_POSITIONS:
+            self.add_segment(position)
+        #previous legacy implementation
+        # for _ in range(3):
+        #     new_square = Turtle(shape="square")
+        #     new_square.color("white")
+        #     new_square.penup()
+        #     self.start[0] += -20
+        #     new_square.goto(self.start[0], 0)
+        #     self.segments.append(new_square)
+
+    def add_segment(self, position):
+        new_square = Turtle(shape="square")
+        new_square.color("white")
+        new_square.penup()
+        new_square.goto(position)
+        self.segments.append(new_square)
+
+    #def increase_tail(self):
 
     def move_up(self):
         #CONDITIONAL TO AVOID TURNING BACK ON ITS OWN TAIL
@@ -49,3 +62,4 @@ class Snake:
 
         self.head.forward(MOVE_DISTANCE)
 
+    def increase_tail(self):

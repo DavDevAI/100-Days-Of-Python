@@ -13,4 +13,4 @@ class Food(Turtle): #we want to inherit food from the turtle class instead of cr
         self.refresh_food()
 
     def refresh_food(self):
-        self.goto(random.randint(-280, 280), random.randint(-280, 280))
+        self.goto(random.randint(-270, 270), random.randint(-270, 270))

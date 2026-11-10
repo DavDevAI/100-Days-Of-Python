@@ -5,7 +5,7 @@ from scoreboard import Scoreboard
 import time
 
 screen = Screen()
-screen.setup(width = 800, height = 600) # WHEN IS A LIBRARY THING AND DOESN'T KNOW EXACTLY WHAT MEANS EACH pARAMETERS WE USE THE EXPLICIT PARAMETER like width = 600
+screen.setup(width = 600, height = 600) # WHEN IS A LIBRARY THING AND DOESN'T KNOW EXACTLY WHAT MEANS EACH pARAMETERS WE USE THE EXPLICIT PARAMETER like width = 600
 screen.bgcolor("black") #changing background color and name it as black I want it black
 screen.title("David´s Snake Game")
 screen.tracer(0)
@@ -37,6 +37,13 @@ while game_is_on:
         print("eating")
         scoreboard.increase_score()
         food.refresh_food()
+
+    #Detect collision with the walls to end the game
+    if snake.head.xcor() > 280 or snake.head.ycor() > 280 or snake.head.xcor() < -280 or snake.head.ycor()<-280:
+        game_is_on = False
+        scoreboard.game_over()
+        print("Game Over")
+
 
 
 screen.exitonclick()
