@@ -4,6 +4,9 @@ piano_keys = ["a", "b", "c", "d", "e", "f", "g"]
 print(piano_keys[2:5]) #here i get hold of the indexes from 1 to 5 but NOT INCLUDING THE ELEMENT OF 5 just from 2 to 4
 #answer "c", "d", "e"
 
+#all the rest starting from the index 2 skipping the first 2 positions and getting or leaving the rest
+print(piano_keys[2:])#but not including the item on index 2 that means c will also appear
+
 #if i want eveything up to position 5
 print(piano_keys[:5]) #I get rid of the first value on the slicing
 

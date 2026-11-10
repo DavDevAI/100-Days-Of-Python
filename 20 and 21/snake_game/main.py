@@ -20,8 +20,8 @@ scoreboard = Scoreboard()
 
 screen.onkey(key="Up", fun=snake.move_up)
 screen.onkey(key="Down", fun=snake.move_down)
-screen.onkey(key="Left", fun=snake.move_left)
-screen.onkey(key="Right", fun=snake.move_right)
+screen.onkeypress(key="Left", fun=snake.move_left)
+screen.onkeypress(key="Right", fun=snake.move_right)
 
 game_is_on = True
 
@@ -45,13 +45,15 @@ while game_is_on:
         scoreboard.game_over()
 
     #detect collision with tail
-    for segment in snake.segments:
-
-        if segment == snake.head:
-            pass
-        elif snake.head.distance(segment) < 10: #ALWAYS CHECKING BOTH ONE AFTER THE ANOTHER that way not only when the condition happens in two separate ifs
+    for segment in snake.segments[1:]: #mine it was [1:-1] thinking from the fist to the always last but i could also everything from 1 to nothing which is the end
+        if snake.head.distance(segment) < 10:
             game_is_on = False
             scoreboard.game_over()
+        # if segment == snake.head:
+        #     pass
+        # elif snake.head.distance(segment) < 10: #ALWAYS CHECKING BOTH ONE AFTER THE ANOTHER that way not only when the condition happens in two separate ifs
+        #     game_is_on = False
+        #     scoreboard.game_over()
 
 
 
