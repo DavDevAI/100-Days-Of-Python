@@ -1,6 +1,7 @@
 from turtle import Screen
 from snake import Snake
 from food import Food
+from scoreboard import Scoreboard
 import time
 
 screen = Screen()
@@ -12,6 +13,7 @@ screen.listen()
 
 snake = Snake()
 food = Food()
+scoreboard = Scoreboard()
 
 #movements #here I use onkey because if I use onkeypress() and will continue to call the movement and translates on accelerating the snake and
 #for the logics of this games acceleration is not allowed
@@ -31,8 +33,9 @@ while game_is_on:
 
     #Detect collision with food
     #using .distance() method
-    if snake.head.distance(food) < 10: #for this method I can compare if an object is at a certain distance from another object in this case food so I pass as a parameter "food"
+    if snake.head.distance(food) < 16: #for this method I can compare if an object is at a certain distance from another object in this case food so I pass as a parameter "food"
         print("eating")
+        scoreboard.increase_score()
         food.refresh_food()
 
 
