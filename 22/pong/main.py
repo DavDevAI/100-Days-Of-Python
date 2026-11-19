@@ -1,4 +1,3 @@
-import time
 from turtle import Screen, Turtle
 from paddle import Paddle
 from ball import Ball
