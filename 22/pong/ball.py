@@ -2,7 +2,7 @@ from turtle import Turtle
 import random
 
 class Ball(Turtle):
-    def __init__(self):
+    def __init__(self, paddle_left, paddle_right):
         super().__init__()
         # as I am inheriting from the Turtle I don't need and object and directly can pull Turtle's methods
         self.shape("circle")
@@ -14,9 +14,11 @@ class Ball(Turtle):
         self.goto(0,0)
         self.dx = 5
         self.dy = -5
-        self.bounce()
+        self.left_pad = paddle_left
+        self.right_pad = paddle_right
+        self.bounce_physics()
 
-    def bounce(self):
+    def bounce_physics(self):
         self.setx(self.xcor() + self.dx)
         self.sety(self.ycor() + self.dy)
 
@@ -29,3 +31,14 @@ class Ball(Turtle):
         if self.ycor() < -280:
             self.sety(-280)
             self.dy *= -1
+
+        #COLLISIONS WITH THE PADDLE WHENEVER THE PADDLE TOUCHES THEM
+        if (self.xcor() > 262 and self.xcor() < 270) and \
+                (self.ycor() < self.right_pad.ycor() + 50 and self.ycor() > self.right_pad.ycor() - 50):
+            self.setx(262)
+            self.dx *= -1
+
+        if (self.xcor() < -262 and self.xcor() > -270) and \
+                (self.ycor() < self.left_pad.ycor() + 50 and self.ycor() > self.left_pad.ycor() - 50):
+            self.setx(-262)
+            self.dx *= -1
