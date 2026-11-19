@@ -6,7 +6,7 @@ from scoreboard import Scoreboard
 import time
 
 screen = Screen()
-screen.setup(width = 600, height = 600)
+screen.setup(width = 800, height = 600)
 screen.bgcolor("black")
 screen.title("David´s PONG")
 screen.tracer(0)
