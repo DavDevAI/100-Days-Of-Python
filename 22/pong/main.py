@@ -4,8 +4,8 @@ from ball import Ball
 from scoreboard import Scoreboard
 import time
 
-LEFT_COORDS = (-300,0)
-RIGHT_COORDS = (300,0)
+LEFT_COORDS = (-325,0)
+RIGHT_COORDS = (325,0)
 
 screen = Screen()
 screen.setup(width = 800, height = 600)
@@ -17,7 +17,6 @@ screen.listen()
 
 paddle_left = Paddle(LEFT_COORDS)
 paddle_right = Paddle(RIGHT_COORDS)
-
 ball = Ball(paddle_left, paddle_right)
 
 screen.onkeypress(key="w", fun=paddle_left.paddle_up)

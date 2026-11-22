@@ -19,7 +19,7 @@ class Paddle(Turtle):
         #     self.build_paddle(position)
         self.shape("square")
         self.color("white")
-        self.shapesize(stretch_wid=3, stretch_len=1)
+        self.shapesize(stretch_wid=4, stretch_len=1)
         self.penup()
         self.goto(coords)
         #self.paddle_segments.append(new_paddle)
