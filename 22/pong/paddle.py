@@ -52,6 +52,7 @@ class Paddle(Turtle):
         #later we could add restriction on x
     def paddle_down(self):
         #self.setx(self.xcor() + -20)
+        #if self.ycor() < 200:  #use if you want constraint
         self.sety(self.ycor() + -(MOVE_DISTANCE))
 
     def reset_position(self):
