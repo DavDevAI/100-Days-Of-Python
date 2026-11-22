@@ -43,7 +43,7 @@ class Ball(Turtle):
             self.dx *= -1
 
         #collision with left
-        if self.distance(self.left_pad) > -50 and self.xcor() < -305:  # ITS 305 because the width of the paddle is 20 and I sent it to 325 so it is 325 - 20
+        if self.distance(self.left_pad) < 50 and self.xcor() < -305:  # ITS 305 because the width of the paddle is 20 and I sent it to 325 so it is 325 - 20
             #inversed the greater than conditional logic because of the position of the xy plane and the shifting to negative numbers basic alg math
             self.setx(-305)
             self.dx *= -1
@@ -59,3 +59,6 @@ class Ball(Turtle):
         #         (self.ycor() < self.left_pad.ycor() + 50 and self.ycor() > self.left_pad.ycor() - 50):
         #     self.setx(-262)
         #     self.dx *= -1
+
+    def reset_position(self):
+        self.goto(0,0)

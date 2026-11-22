@@ -54,3 +54,6 @@ class Paddle(Turtle):
     def paddle_down(self):
         #self.setx(self.xcor() + -20)
         self.sety(self.ycor() + -(MOVE_DISTANCE))
+
+    def reset_position(self):
+        self.goto(self.coords)

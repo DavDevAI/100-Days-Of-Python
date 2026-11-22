@@ -16,7 +16,9 @@ screen.listen()
 
 
 paddle_left = Paddle(LEFT_COORDS)
+score_left = Scoreboard((-200, 270))
 paddle_right = Paddle(RIGHT_COORDS)
+score_right = Scoreboard((200, 270))
 ball = Ball(paddle_left, paddle_right)
 
 screen.onkeypress(key="w", fun=paddle_left.paddle_up)
@@ -34,6 +36,15 @@ while game_is_on:
     time.sleep(0.042)
     ball.bounce_physics()
 
-
+    if ball.xcor() > 400:
+        score_left.increase_score()
+        ball.reset_position()
+        paddle_left.reset_position()
+        paddle_right.reset_position()
+    if ball.xcor() < -400:
+        score_right.increase_score()
+        ball.reset_position()
+        paddle_left.reset_position()
+        paddle_right.reset_position()
 
 screen.exitonclick()
