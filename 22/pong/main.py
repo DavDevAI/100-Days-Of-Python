@@ -33,7 +33,8 @@ game_is_on = True
 while game_is_on:
 
     screen.update()
-    time.sleep(0.042)
+    time.sleep(ball.speed_res)
+
     ball.bounce_physics()
 
     if ball.xcor() > 400:
