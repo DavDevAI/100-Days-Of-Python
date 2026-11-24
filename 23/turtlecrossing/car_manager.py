@@ -34,6 +34,7 @@ class CarManager:
         self.car_bank.append(add_car)
 
     def move_cars(self):
+        print(f"current speed rate: {self.starting_move_distance}")
         for car in self.car_bank:
             #if I want random pace movement for each and every car instead all of them moving at the same pace
             #car.forward(random.randint(0, STARTING_MOVE_DISTANCE+1))
@@ -48,12 +49,19 @@ class CarManager:
     def check_collision(self):
         for car in self.car_bank:
             #print(f"Current cars list: {self.car_bank}")
-            if self.player.distance(car) < 20 and self.player.xcor() > (car.distance(self.player) < 20):  #  if self.distance(self.right_pad) < 50 and self.xcor() > 305:
+            if car.distance(self.player) < 20: #and self.player.xcor() > (car.distance(self.player) < 20):  #  if self.distance(self.right_pad) < 50 and self.xcor() > 305:
                 print("collided")
                 return False
+            #if you want more precision for the x axis is 30 in distance for the horizontal axis component
+            # if car.distance(self.player.xcor()) < 30:
+            #     print("collided")
+            #     return False
         return True
 
-    def increase_speed(self, func):
+    def increase_speed(self):
         self.starting_move_distance += self.move_increment
-        return func(self.starting_move_distance)
+    #tried higher order function approach and did not work
+    # def increase_speed(self, func):
+    #     self.starting_move_distance += self.move_increment
+    #     return func(self.starting_move_distance)
 

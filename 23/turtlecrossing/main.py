@@ -12,7 +12,7 @@ screen.listen()
 
 
 player = Player()
-cars = CarManager(player ) #i pass here the fixed object that never changes
+cars = CarManager(player) #i pass here the fixed object that never changes
 score = Scoreboard()
 
 screen.onkeypress(key="Up", fun=player.move_up)
@@ -29,15 +29,20 @@ while game_is_on:
 
     if count % 6 == 0:
         print(f"refresh at {count}")
-        cars.generate_traffic() #until here its good, but also to make it even more random, each 6 refreshes form a list and pick in which time of those six I generate
+        cars.generate_traffic() #until here it's good, but also to make it even more random, each 6 refreshes form a list and pick in which time of those six I generate
 
     if player.ycor() > 296:
         #increase level, by scoring a level upgrade and increasing traffic speed
         score.increase_score()
         player.reset_position()
-        cars.increase_speed(cars.move_cars())
+        cars.increase_speed()
+        #cars.increase_speed(10, cars.move_cars) #did not work on objects the higher order function
 
 
     if not cars.check_collision():
-        game_is_on = False
         score.game_over()
+        game_is_on = False
+
+
+
+screen.exitonclick()
