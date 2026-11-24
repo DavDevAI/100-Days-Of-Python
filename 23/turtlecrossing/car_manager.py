@@ -34,7 +34,7 @@ class CarManager:
         self.car_bank.append(add_car)
 
     def move_cars(self):
-        print(f"current speed rate: {self.starting_move_distance}")
+        #print(f"current speed rate: {self.starting_move_distance}")
         for car in self.car_bank:
             #if I want random pace movement for each and every car instead all of them moving at the same pace
             #car.forward(random.randint(0, STARTING_MOVE_DISTANCE+1))

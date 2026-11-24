@@ -28,7 +28,7 @@ while game_is_on:
     cars.move_cars()
 
     if count % 6 == 0:
-        print(f"refresh at {count}")
+        #print(f"refresh at {count}")
         cars.generate_traffic() #until here it's good, but also to make it even more random, each 6 refreshes form a list and pick in which time of those six I generate
 
     if player.ycor() > 296:
